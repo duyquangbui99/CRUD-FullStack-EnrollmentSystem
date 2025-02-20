@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+            <ul class="nav-links">
+                <li><button class="nav-button" data-section="students">Students</button></li>
+                <li><button class="nav-button" data-section="courses">Courses</button></li>
+                <li><button class="nav-button" data-section="enrollments">Enrollments</button></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <!-- Students Section -->
+            <section id="students-section" class="section">
+                <h2>Students</h2>
+                <form id="student-form">
+                    <input type="text" id="student-name" placeholder="Name" required>
+                    <input type="email" id="student-email" placeholder="Email" required>
+                    <button type="submit">Add Student</button>
+                </form>
+                <table id="students-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="students-table-body"></tbody>
+                </table>
+            </section>
+
+            <!-- Courses Section -->
+            <section id="courses-section" class="section">
+                <h2>Courses</h2>
+                <form id="course-form">
+                    <input type="text" id="course-name" placeholder="Course Name" required>
+                    <input type="text" id="course-description" placeholder="Description" required>
+                    <button type="submit">Add Course</button>
+                </form>
+                <table id="courses-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Course Name</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="courses-table-body"></tbody>
+                </table>
+            </section>
+
+            <!-- Enrollments Section -->
+            <section id="enrollments-section" class="section">
+                <h2>Enrollments</h2>
+                <form id="enroll-form">
+                    <select id="student-select" required></select>
+                    <select id="course-select" required></select>
+                    <button type="submit">Enroll</button>
+                </form>
+                <table id="enrollments-table">
+                    <thead>
+                        <tr>
+                            <th>Enrollment ID</th>
+                            <th>Student ID</th>
+                            <th>Course ID</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="enrollments-table-body"></tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
