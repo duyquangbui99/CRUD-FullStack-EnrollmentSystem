@@ -127,6 +127,29 @@ Your **backend** is now running at:
 | \`POST\` | \`/enrollments\`       | Enroll a student in a course |
 | \`DELETE\` | \`/enrollments/:id\` | Remove a student from a course |
 
+
+**GET/enrollments**
+- Get all enrollments
+<img width="1289" alt="enrollment-get" src="https://github.com/user-attachments/assets/4e28e089-3d3a-4ee6-8aa4-64fad08cb7d4" />
+
+
+**MySQL database for students**
+- Database for enrollments
+<img width="504" alt="db-enrollment" src="https://github.com/user-attachments/assets/024c3979-e494-4989-9888-5c068bf540e6" />
+
+**POST/enrollments**
+- Enroll student to course
+<img width="1286" alt="enrollment-added" src="https://github.com/user-attachments/assets/cd19e415-52cc-412a-87e0-2f9f261f0985" />
+
+**DELETE/enrollments/:id**
+- Remove all enrollments
+<img width="1278" alt="enrollment-remove" src="https://github.com/user-attachments/assets/7ccd2913-5edb-4de7-82b9-0a715090807e" />
+
+**MySQL database for enrollments**
+- Database after removing enrollments
+<img width="740" alt="db-enrollment-remove" src="https://github.com/user-attachments/assets/39558e29-dc35-435c-94c9-2b50a322a0f7" />
+
+
 ---
 
 
@@ -147,5 +170,5 @@ app.use(cors());
 **Fix:** Double-check your **MySQL credentials** in \`.env\` and ensure MySQL is running.
 
 ---
-
+Author: Quang Bui
 
