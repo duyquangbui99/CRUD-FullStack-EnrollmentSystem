@@ -36,7 +36,7 @@ CREATE TABLE enrollments (
 );
 \`\`\`
 
-### **4️⃣ Configure Environment Variables**
+### **Configure Environment Variables**
 Create a \`.env\` file in the root directory:
 \`\`\`env
 DB_HOST=localhost
@@ -46,7 +46,7 @@ DB_NAME=school_management
 PORT=3000
 \`\`\`
 
-### **5️⃣ Start the Server**
+### **Start the Server**
 \`\`\`bash
 node app.js
 \`\`\`
@@ -62,15 +62,15 @@ Your **backend** is now running at:
 | \`PUT\`  | \`/students/:id\`     | Update student info   |
 | \`DELETE\` | \`/students/:id\`  | Remove a student      |
 
-**GET/students**
+### **GET/students**
 <img width="1306" alt="Student-get" src="https://github.com/user-attachments/assets/eab9c96f-745e-40c9-8029-9a1f5fce28ca" />
-**POST/students**
+### **POST/students**
 <img width="1296" alt="student-add" src="https://github.com/user-attachments/assets/e371bcce-6060-44b0-9a27-8e2a58f976da" />
-**PUT/students/:id**
+### **PUT/students/:id**
 <img width="1292" alt="student-update" src="https://github.com/user-attachments/assets/7274ed6d-55c2-4293-bf2b-4b271db3cb73" />
-**DELETE/students/:id**
+### **DELETE/students/:id**
 <img width="1298" alt="student-delete" src="https://github.com/user-attachments/assets/7ac1ee5e-27ea-4739-a93d-7612f50acef7" />
-**MySQL database for students**
+### **MySQL database for students**
 <img width="635" alt="Database-student" src="https://github.com/user-attachments/assets/83253831-7c73-4863-b8f2-eba4cfc53475" />
 
 
