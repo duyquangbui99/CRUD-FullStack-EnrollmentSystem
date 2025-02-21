@@ -167,7 +167,7 @@ app.use(cors());
 \`\`\`
 
 **Issue:** \`ER_ACCESS_DENIED_ERROR (MySQL connection failed)\`  
-**Fix:** Double-check your **MySQL credentials** in \`.env\` and ensure MySQL is running.
+**Fix:** Double-check your **MySQL credentials** in \`db,js\` and ensure MySQL is running.
 
 ---
 Author: Quang Bui
