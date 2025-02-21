@@ -79,7 +79,7 @@ Your **backend** is now running at:
 <img width="1298" alt="student-delete" src="https://github.com/user-attachments/assets/7ac1ee5e-27ea-4739-a93d-7612f50acef7" />
 
 **MySQL database for students**
-- Database after remove students
+- Database after removing students
 <img width="635" alt="Database-student" src="https://github.com/user-attachments/assets/83253831-7c73-4863-b8f2-eba4cfc53475" />
 
 
@@ -91,6 +91,34 @@ Your **backend** is now running at:
 | \`POST\` | \`/courses\`          | Add a new course      |
 | \`PUT\`  | \`/courses/:id\`      | Update course info    |
 | \`DELETE\` | \`/courses/:id\`   | Remove a course       |
+
+
+**GET/courses**
+- Get all courses
+<img width="1296" alt="Course-get" src="https://github.com/user-attachments/assets/3776f35f-b051-4c87-8beb-0caa276320e9" />
+
+**POST/courses**
+- Add course: Full stack class
+<img width="1296" alt="COURSE-ADD" src="https://github.com/user-attachments/assets/64d66410-430d-47cd-bdd6-7a5a60af0b0d" />
+
+**MySQL database for courses**
+- Database after adding course
+<img width="564" alt="db-courses-added" src="https://github.com/user-attachments/assets/3c060082-7268-4235-9a22-8c723e84ffde" />
+
+**PUT/courses/:id**
+- Update course
+<img width="1229" alt="course-update" src="https://github.com/user-attachments/assets/8fd9e492-1536-4d83-9527-c89978697b7a" />
+
+**DELETE/courses/:id**
+- Remove courses
+<img width="1292" alt="Course-remove" src="https://github.com/user-attachments/assets/8d0185b3-60e5-4e4c-aa11-6a3f3025c772" />
+
+**MySQL database for courses**
+- Database after removing courses
+<img width="728" alt="db-course-removed" src="https://github.com/user-attachments/assets/c20fb624-3973-4734-bec4-83aab6478579" />
+
+
+
 
 ### **📌 Enrollments**
 | Method | Endpoint             | Description               |
