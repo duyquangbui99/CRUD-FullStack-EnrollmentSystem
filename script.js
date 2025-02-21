@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     </tr>
                 `).join("");
 
-                // Populate student dropdown for enrollments
                 studentSelect.innerHTML = data.map(student => `
                     <option value="${student.id}">${student.name}</option>
                 `).join("");
@@ -75,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }).catch(err => console.error("Error adding student:", err));
     });
 
-    // Update student
+    // Update student with success alert
     window.updateStudent = (id) => {
         const name = document.getElementById(`student-name-${id}`).value;
         const email = document.getElementById(`student-email-${id}`).value;
@@ -84,7 +83,10 @@ document.addEventListener("DOMContentLoaded", () => {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, email })
-        }).then(fetchStudents);
+        }).then(() => {
+            fetchStudents();
+            alert("Student updated successfully!");
+        });
     };
 
     // Delete student
@@ -93,6 +95,19 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(() => fetchStudents())
             .catch(err => console.error("Error deleting student:", err));
     };
+
+    // Add new course
+    courseForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(`${BASE_URL}/courses`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ course_name: courseName.value, description: courseDescription.value })
+        }).then(() => {
+            fetchCourses();
+            courseForm.reset();
+        }).catch(err => console.error("Error adding course:", err));
+    });
 
     // Fetch and display courses
     function fetchCourses() {
@@ -111,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     </tr>
                 `).join("");
 
-                // Populate course dropdown for enrollments
                 courseSelect.innerHTML = data.map(course => `
                     <option value="${course.id}">${course.course_name}</option>
                 `).join("");
@@ -119,51 +133,31 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(err => console.error("Error fetching courses:", err));
     }
 
-    // Add new course
-    courseForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        fetch(`${BASE_URL}/courses`, {
-            method: "POST",
+    // Update course with success alert
+    window.updateCourse = (id) => {
+        const course_name = document.getElementById(`course-name-${id}`).value;
+        const description = document.getElementById(`course-description-${id}`).value;
+
+        fetch(`${BASE_URL}/courses/${id}`, {
+            method: "PUT",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ course_name: courseName.value, description: courseDescription.value })
+            body: JSON.stringify({ course_name, description })
         }).then(() => {
             fetchCourses();
-            courseForm.reset();
-        }).catch(err => console.error("Error adding course:", err));
-    });
-
-    // Fix: Prevent Enroll Button from Reloading Page
-    enrollForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const student_id = studentSelect.value;
-        const course_id = courseSelect.value;
-
-        if (!student_id || !course_id) {
-            alert("Please select both a student and a course.");
-            return;
-        }
-
-        fetch(`${BASE_URL}/enrollments`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ student_id, course_id })
-        }).then((response) => {
-            if (!response.ok) {
-                throw new Error("Failed to enroll student.");
-            }
-            return response.json();
-        }).then(() => {
-            fetchEnrollments();
-            enrollForm.reset();
-        }).catch(err => {
-            console.error("Error enrolling student:", err);
-            alert("Failed to enroll student. Please try again.");
+            alert("Course updated successfully!");
         });
-    });
+    };
 
-    // Fetch and display enrollments
+    // Delete course (Fix issue)
+    window.deleteCourse = (id) => {
+        fetch(`${BASE_URL}/courses/${id}`, { method: "DELETE" })
+            .then(() => {
+                fetchCourses();
+            })
+            .catch(err => console.error("Error deleting course:", err));
+    };
+
+    // Fetch and display enrollments 
     function fetchEnrollments() {
         fetch(`${BASE_URL}/enrollments`)
             .then(res => res.json())
@@ -182,10 +176,42 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(err => console.error("Error fetching enrollments:", err));
     }
 
+    enrollForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevents form reload
+
+        const student_id = studentSelect.value;
+        const course_id = courseSelect.value;
+
+        if (!student_id || !course_id) {
+            alert("Please select both a student and a course.");
+            return;
+        }
+
+        fetch(`${BASE_URL}/enrollments`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ student_id, course_id })
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to enroll student.");
+            }
+            return response.json();
+        }).then(() => {
+            fetchEnrollments(); // Refresh enrollments list
+            enrollForm.reset(); // Clear the form selection
+        }).catch(err => {
+            console.error("Error enrolling student:", err);
+            alert("Failed to enroll student. Please try again.");
+        });
+    });
+
+
     // Delete enrollment
     window.deleteEnrollment = (id) => {
         fetch(`${BASE_URL}/enrollments/${id}`, { method: "DELETE" })
-            .then(() => fetchEnrollments())
+            .then(() => {
+                fetchEnrollments();
+            })
             .catch(err => console.error("Error removing enrollment:", err));
     };
 
