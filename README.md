@@ -4,37 +4,12 @@ This is a **full-stack web application** built using **Node.js, Express, MySQL, 
 
 ---
 
-## **🚀 Features**
-✅ **Dashboard Layout** with sidebar navigation  
-✅ **CRUD Operations** for students and courses  
-✅ **Enroll students into courses**  
-✅ **Real-time UI updates** after actions  
-✅ **Validation and error handling**  
-✅ **Success alerts on updates and deletions**  
-
----
-
-## **🛠 Tech Stack**
-- **Frontend**: HTML, CSS, JavaScript (Fetch API)  
-- **Backend**: Node.js, Express.js  
-- **Database**: MySQL  
-- **Tools**: MySQL Workbench, Postman (for API testing)  
-
----
-
-## **📥 Installation Guide**
-### **1️⃣ Clone the Repository**
-\`\`\`bash
-git clone https://github.com/your-username/student-course-dashboard.git
-cd student-course-dashboard
-\`\`\`
-
-### **2️⃣ Install Dependencies**
+### **Install Dependencies**
 \`\`\`bash
 npm install
 \`\`\`
 
-### **3️⃣ Set Up MySQL Database**
+### **Set Up MySQL Database**
 Run the following SQL script in **MySQL Workbench** or your database tool:
 \`\`\`sql
 CREATE DATABASE school_management;
@@ -78,21 +53,6 @@ node app.js
 Your **backend** is now running at:  
 📍 \`http://localhost:3000\`
 
----
-
-## **💻 Usage**
-### **1️⃣ Open the Frontend**
-Simply open \`index.html\` in your **browser**.
-
-### **2️⃣ Features**
-- **Add Students & Courses**
-- **Edit & Delete Students/Courses**
-- **Enroll Students in Courses**
-- **Remove Enrollments**
-- **Live Data Updates**
-
----
-
 ## **📡 API Endpoints**
 ### **📌 Students**
 | Method | Endpoint            | Description            |
@@ -101,6 +61,19 @@ Simply open \`index.html\` in your **browser**.
 | \`POST\` | \`/students\`         | Add a new student     |
 | \`PUT\`  | \`/students/:id\`     | Update student info   |
 | \`DELETE\` | \`/students/:id\`  | Remove a student      |
+
+**GET/students**
+<img width="1306" alt="Student-get" src="https://github.com/user-attachments/assets/eab9c96f-745e-40c9-8029-9a1f5fce28ca" />
+**POST/students**
+<img width="1296" alt="student-add" src="https://github.com/user-attachments/assets/e371bcce-6060-44b0-9a27-8e2a58f976da" />
+**PUT/students/:id**
+<img width="1292" alt="student-update" src="https://github.com/user-attachments/assets/7274ed6d-55c2-4293-bf2b-4b271db3cb73" />
+**DELETE/students/:id**
+<img width="1298" alt="student-delete" src="https://github.com/user-attachments/assets/7ac1ee5e-27ea-4739-a93d-7612f50acef7" />
+**MySQL database for students**
+<img width="635" alt="Database-student" src="https://github.com/user-attachments/assets/83253831-7c73-4863-b8f2-eba4cfc53475" />
+
+
 
 ### **📌 Courses**
 | Method | Endpoint            | Description            |
@@ -118,6 +91,8 @@ Simply open \`index.html\` in your **browser**.
 | \`DELETE\` | \`/enrollments/:id\` | Remove a student from a course |
 
 ---
+
+
 
 ## **🐞 Troubleshooting**
 **Issue:** \`CORS Policy Blocked Request\`  
